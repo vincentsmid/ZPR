@@ -55,6 +55,9 @@ def priklad2(n, m, znak1, znak2):
 
 priklad2 (10, 9, '#', 'o')
 
+def sort_key(x):
+  return (x[0], x[1])
+
 def priklad3(seznam, index):
     if not isinstance(seznam, list) or len(seznam) == 0:
         return (False, None)
@@ -71,15 +74,15 @@ def priklad3(seznam, index):
 
     for i, cislo in enumerate(seznam):
         if cislo > hodnota:
-            vyssi_cisla.append((abs(i - index), cislo, i))
+          vyssi_cisla.append((abs(i - index), cislo, i))
 
     if not vyssi_cisla:
         return (False, None)
 
-    vyssi_cisla.sort(key=lambda x: (x[0], x[1]))
+    vyssi_cisla.sort(key=sort_key)
 
     return (True, vyssi_cisla[0][1])
 
-ret = priklad3 ([1, 2, 3, 5, 11, 6, 9, 7, 10, 5, 6], 6) 
+ret = priklad3 ([1, 2, 3, 5, 11, 6, 9, 7, 10, 5, 6], 1) 
 print(ret)
 
